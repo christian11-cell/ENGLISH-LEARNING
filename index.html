@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Englishkuy | Learning English Safely</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === KODE CSS UTAMA === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0f172a; /* Warna latar belakang biru gelap standar */
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Kelas untuk membungkus konten agar rapi di tengah */
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* === 1. BAGIAN IDENTITAS MAHASISWA === */
+        .identity-bar {
+            background-color: #1e293b;
+            border-bottom: 2px solid #38bdf8;
+            padding: 15px 0;
+            font-size: 0.95rem;
+        }
+        .identity-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: #38bdf8; /* Warna cyan standar */
+            font-weight: 600;
+        }
+
+        /* === 2. NAVIGATION BAR === */
+        nav {
+            background-color: #0f172a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #334155;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #38bdf8;
+        }
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* === 3. HERO SECTION === */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 30px;
+        }
+        .btn-start {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .btn-start:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* === GENERAL SECTION STYLES === */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #38bdf8;
+            text-align: center;
+        }
+
+        /* === 4. READING SECTION (BOX SEDERHANA) === */
+        .reading-card {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #38bdf8;
+        }
+        .reading-card h3 {
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .reading-card p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        /* === 5. VOCABULARY SECTION (GRID STANDAR) === */
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+        .vocab-card {
+            background-color: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            transition: 0.3s;
+            border: 1px solid #334155;
+        }
+        .vocab-card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-3px);
+        }
+        .vocab-card h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+        .vocab-card p {
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            margin-bottom: 10px;
+        }
+        .vocab-card em {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* === 6. GRAMMAR SECTION === */
+        .grammar-box {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+        .grammar-box h3 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+        .grammar-box p {
+            color: #cbd5e1;
+        }
+
+        /* === 7. SPEAKING SECTION (TEXT TO SPEECH) === */
+        .speaking-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .speaking-item {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .speaking-text {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .btn-speak {
+            background-color: transparent;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-speak:hover {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        /* === 8. QUIZ SECTION === */
+        .quiz-card {
+            background-color: #1e293b;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+        #question {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .opt-btn {
+            background-color: #0f172a;
+            color: #ffffff;
+            border: 1px solid #334155;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: left;
+            transition: 0.2s;
+        }
+        .opt-btn:hover {
+            border-color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.05);
+        }
+        #feedback {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            height: 25px;
+        }
+
+        /* === FOOTER === */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+            font-size: 0.9rem;
+        }
+
+        /* Responsif untuk Handphone */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 10px; }
+            .identity-container { flex-direction: column; text-align: center; gap: 50px; }
+            .speaking-item { flex-direction: column; gap: 15px; text-align: center; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="identity-bar">
+        <div class="container identity-container">
+            <span>Name: Tambunan Christian Bonardo</span>
+            <span>NIM: 2505181090</span>
+            <span>Class: TRPL 2E</span>
+        </div>
+    </div>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Englishkuy</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#reading">Reading</a>
+                <a href="#vocab">Vocab</a>
+                <a href="#grammar">Grammar</a>
+                <a href="#speaking">Speaking</a>
+                <a href="#quiz">Quiz</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="container">
+            <h1>Welcome to Englishkuy</h1>
+            <p>A simple and fun platform to practice your basic English skills every day.</p>
+            <a href="#reading" class="btn-start">Start Learning Now</a>
+        </div>
+    </header>
+
+    <section id="reading">
+        <div class="container">
+            <h2 class="section-title">📖 Reading Session</h2>
+            <div class="reading-card">
+                <h3>A Day in the Life of a Student</h3>
+                <p>Alex is a university student. He wakes up early every day. He likes the morning because it is very quiet. He drinks a big cup of coffee and eats some bread for breakfast. He reads his books before he goes to the campus. He studies computer science, and he really loves learning about new technology.</p>
+                <p>After his classes, Alex meets his friends in the library. They sit at a large table and do their homework together. Sometimes, the homework is very difficult, but they always help each other. They talk about their lessons and laugh a lot. Alex thinks that studying with friends is very fun and useful.</p>
+                <p>In the evening, Alex goes back to his house. He is usually very tired, but he feels happy. He cooks a simple dinner, like fried rice or noodles. After dinner, he watches a movie or listens to music to relax. He goes to bed at ten o'clock because he needs a lot of energy for the next day.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vocab">
+        <div class="container">
+            <h2 class="section-title">🧠 Vocabulary List</h2>
+            <div class="vocab-grid">
+                <div class="vocab-card">
+                    <h3>Improve</h3>
+                    <p><strong>Meaning:</strong> To make something better than before.</p>
+                    <em>Example: "I want to improve my speaking skills."</em>
+                </div>
+                <div class="vocab-card">
+                    <h3>Confident</h3>
+                    <p><strong>Meaning:</strong> Feeling sure about your own abilities.</p>
+                    <em>Example: "He feels confident when speaking English."</em>
+                </div>
+                <div class="vocab-card">
+                    <h3>Opportunity</h3>
+                    <p><strong>Meaning:</strong> A good chance to do something.</p>
+                    <em>Example: "Studying here is a great opportunity."</em>
+                </div>
+                <div class="vocab-card">
+                    <h3>Achieve</h3>
+                    <p><strong>Meaning:</strong> To succeed in doing something hard.</p>
+                    <em>Example: "You can achieve your goals if you work hard."</em>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="grammar">
+        <div class="container">
+            <h2 class="section-title">💡 Grammar Basics</h2>
+            
+            <div class="grammar-box">
+                <h3>1. Present Simple Tense</h3>
+                <p>We use the <strong>Present Simple</strong> to talk about daily habits, routines, or facts that are always true. <br>
+                <strong>Formula:</strong> Subject + Verb 1 (add -s/-es for He/She/It)<br>
+                <strong>Example:</strong> "Alex drinks coffee every morning."</p>
+            </div>
+
+            <div class="grammar-box">
+                <h3>2. Present Continuous Tense</h3>
+                <p>We use the <strong>Present Continuous</strong> to talk about actions that are happening right now, at this exact moment. <br>
+                <strong>Formula:</strong> Subject + am/is/are + Verb-ing<br>
+                <strong>Example:</strong> "Alex is studying in the library right now."</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="speaking">
+        <div class="container">
+            <h2 class="section-title">🗣️ Speaking Practice</h2>
+            <div class="speaking-list">
+                <div class="speaking-item">
+                    <span class="speaking-text" id="t1">"Hello, how are you doing today?"</span>
+                    <button class="btn-speak" onclick="talk('t1')">🔊 Listen</button>
+                </div>
+                <div class="speaking-item">
+                    <span class="speaking-text" id="t2">"Excuse me, could you help me find the library?"</span>
+                    <button class="btn-speak" onclick="talk('t2')">🔊 Listen</button>
+                </div>
+                <div class="speaking-item">
+                    <span class="speaking-text" id="t3">"Thank you very much for your kind help."</span>
+                    <button class="btn-speak" onclick="talk('t3')">🔊 Listen</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <div class="container">
+            <h2 class="section-title">🎮 Simple Quiz</h2>
+            <div class="quiz-card" id="quiz-area">
+                <h3 id="question">Question loading...</h3>
+                <div class="options" id="opt-box"></div>
+                <div id="feedback"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            © 2026 Englishkuy - Final English Project by TRPL 2E Student.
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi Text to Speech untuk fitur Speaking
+        function talk(elementId) {
+            const textToSay = document.getElementById(elementId).innerText;
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utterance = new SpeechSynthesisUtterance(textToSay);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Your browser does not support audio features.");
+            }
+        }
+
+        // Data Kuis Sederhana
+        const quizQuestions = [
+            { q: "What does the word 'Improve' mean?", answers: ["To make something better", "To make something worse", "To stop working"], correct: 0 },
+            { q: "Complete the sentence: 'Alex ___ drinking coffee right now.'", answers: ["is", "am", "are"], correct: 0 },
+            { q: "Where does Alex study with his friends?", answers: ["In the market", "In the library", "In the cinema"], correct: 1 }
+        ];
+
+        let indexQ = 0;
+        let userScore = 0;
+
+        const qElement = document.getElementById('question');
+        const optBox = document.getElementById('opt-box');
+        const fbElement = document.getElementById('feedback');
+
+        function startQuiz() {
+            if (indexQ >= quizQuestions.length) {
+                document.getElementById('quiz-area').innerHTML = `
+                    <h3 style="color: #38bdf8; margin-bottom: 15px;">Quiz Finished! 🎉</h3>
+                    <p style="font-size: 1.2rem;">Your Final Score: ${userScore} / ${quizQuestions.length}</p>
+                    <button class="btn-speak" style="margin-top: 20px;" onclick="location.reload()">Restart Quiz</button>
+                `;
+                return;
+            }
+
+            fbElement.textContent = "";
+            const currentQuestion = quizQuestions[indexQ];
+            qElement.textContent = currentQuestion.q;
+            optBox.innerHTML = "";
+
+            currentQuestion.answers.forEach((option, i) => {
+                const button = document.createElement('button');
+                button.classList.add('opt-btn');
+                button.textContent = option;
+                button.onclick = () => verifyAnswer(button, i, currentQuestion.correct);
+                optBox.appendChild(button);
+            });
+        }
+
+        function verifyAnswer(clickedBtn, selectedIdx, correctIdx) {
+            const allButtons = optBox.querySelectorAll('button');
+            allButtons.forEach(b => b.disabled = true);
+
+            if (selectedIdx === correctIdx) {
+                clickedBtn.style.borderColor = "#00ff00";
+                clickedBtn.style.color = "#00ff00";
+                fbElement.textContent = "Correct Answer! ✨";
+                fbElement.style.color = "#00ff00";
+                userScore++;
+            } else {
+                clickedBtn.style.borderColor = "#ff0000";
+                clickedBtn.style.color = "#ff0000";
+                fbElement.textContent = "Wrong Answer! 💔";
+                fbElement.style.color = "#ff0000";
+                allButtons[correctIdx].style.borderColor = "#00ff00";
+                allButtons[correctIdx].style.color = "#00ff00";
+            }
+
+            setTimeout(() => {
+                indexQ++;
+                startQuiz();
+            }, 2000);
+        }
+
+        startQuiz();
+    </script>
+</body>
+</html>
